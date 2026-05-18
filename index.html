@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHWE Ramen</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ramen-header mb-5">
+      <h1 class="display-4 fw-bold">SHWEラーメン</h1>
+      <p class="lead">美味しい味を皆へ！</p>
+    </div>
+
+    <div class="container mb-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <form id="orderForm" class="needs-validation" novalidate>
+            <div class="card p-4 mb-4">
+              <h3 class="text-warning mb-3">ラーメンを選んでください。</h3>
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <label class="form-label d-block fw-bold">塩味噌</label>
+                  <input
+                    type="number"
+                    class="form-control item-qty"
+                    data-name="味噌"
+                    data-price="990"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label d-block fw-bold">赤味噌</label>
+                  <input
+                    type="number"
+                    class="form-control item-qty"
+                    data-name="赤味噌"
+                    data-price="990"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label d-block fw-bold"
+                    >塩ラーメン（こってり）</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control item-qty"
+                    data-name="塩（こってり）"
+                    data-price="950"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label d-block fw-bold"
+                    >醬油ラーメン（こってり）</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control item-qty"
+                    data-name="醬油（こってり）"
+                    data-price="950"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label d-block fw-bold"
+                    >塩ラーメン（あっさり）</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control item-qty"
+                    data-name="塩（あっさり）"
+                    data-price="950"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label d-block fw-bold"
+                    >醬油ラーメン（あっさり）</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control item-qty"
+                    data-name="醬油（あっさり）"
+                    data-price="950"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label d-block fw-bold"
+                    >ジャンラーメン</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control item-qty"
+                    data-name="ジャン"
+                    data-price="1000"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label d-block fw-bold">つけラーメン</label>
+                  <input
+                    type="number"
+                    class="form-control item-qty"
+                    data-name="つけ"
+                    data-price="1000"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="card p-4 mb-4">
+              <h3 class="text-warning mb-3">オプショントッピング</h3>
+              <div class="row">
+                <div class="col-6 col-md-4 mb-3">
+                  <label class="form-label fw-bold">味玉</label>
+                  <input
+                    type="number"
+                    class="form-control topping-qty"
+                    data-name="味玉"
+                    data-price="150"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-6 col-md-4 mb-3">
+                  <label class="form-label fw-bold">チャーシュー</label>
+                  <input
+                    type="number"
+                    class="form-control topping-qty"
+                    data-name="チャーシュー"
+                    data-price="300"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-6 col-md-4 mb-3">
+                  <label class="form-label fw-bold">メンマ</label>
+                  <input
+                    type="number"
+                    class="form-control topping-qty"
+                    data-name="メンマ"
+                    data-price="150"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-6 col-md-4 mb-3">
+                  <label class="form-label fw-bold">もやし</label>
+                  <input
+                    type="number"
+                    class="form-control topping-qty"
+                    data-name="もやし"
+                    data-price="150"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-6 col-md-4 mb-3">
+                  <label class="form-label fw-bold">ねぎ</label>
+                  <input
+                    type="number"
+                    class="form-control topping-qty"
+                    data-name="ねぎ"
+                    data-price="150"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+                <div class="col-6 col-md-4 mb-3">
+                  <label class="form-label fw-bold">ノリ</label>
+                  <input
+                    type="number"
+                    class="form-control topping-qty"
+                    data-name="ノリ"
+                    data-price="150"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="card p-4 mb-4">
+              <h3 class="text-warning mb-3">セット＆ライス</h3>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label d-block fw-bold">セット</label>
+
+                  <select class="form-select" id="setMeal">
+                    <option value="" data-price="0">セットなし</option>
+
+                    <option value="チャーどん　セット" data-price="480">
+                      チャーどんセット
+                    </option>
+
+                    <option value="餃子　セット" data-price="480">
+                      餃子セット
+                    </option>
+
+                    <option value="チャーハン　セット" data-price="480">
+                      チャーハンセット
+                    </option>
+
+                    <option value="餃子(3 個)" data-price="300">
+                      餃子(3 個)
+                    </option>
+
+                    <option value="餃子(6 個)" data-price="500">
+                      餃子(6 個)
+                    </option>
+                  </select>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 mb-2">
+                    <label class="form-label small text-muted">ライス</label>
+
+                    <input
+                      type="number"
+                      class="form-control rice-qty"
+                      data-name="ライス"
+                      data-price="200"
+                      min="0"
+                      value="0"
+                    />
+                  </div>
+
+                  <div class="col-6 mb-2">
+                    <label class="form-label small text-muted">小ライス</label>
+
+                    <input
+                      type="number"
+                      class="form-control rice-qty"
+                      data-name="小ライス"
+                      data-price="100"
+                      min="0"
+                      value="0"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card p-4 mb-4">
+              <h3 class="text-warning mb-3">お客様の情報</h3>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="custName" class="form-label">名前</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="custName"
+                    required
+                    placeholder="例：田中"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="tableNum" class="form-label">テーブル番号</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="tableNum"
+                    required
+                    min="1"
+                    max="50"
+                    placeholder="例：1"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-danger btn-lg w-100"
+              onclick="submitOrder()"
+            >
+              注文する
+            </button>
+          </form>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card p-4 sticky-top" style="top: 20px">
+            <div
+              class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2"
+            >
+              <h3 class="m-0">注文概要</h3>
+              <button
+                type="button"
+                class="btn btn-outline-danger btn-sm"
+                id="clearOrderBtn"
+                onclick="clearEntireOrder()"
+              >
+                ✕ 全て削除
+              </button>
+            </div>
+
+            <div id="summaryContent" class="my-3">
+              <p class="text-muted">注文内容を追加してください。</p>
+            </div>
+
+            <hr />
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="h4">合計:</span>
+              <span class="h4 text-danger" id="totalPrice">¥0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
