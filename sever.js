@@ -3,12 +3,12 @@ const mysql = require('mysql2');
 
 const PORT = 8080;
 
-// 1. Configure your local MySQL Connection
+// 1. Configure your local MySQL Connection (💡 Local အတွက် တိုက်ရိုက်ပြင်ဆင်ထားသည်)
 const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
+    host: 'localhost',
+    user: 'root',                  // 👈 အလွတ်မထားဘဲ 'root' လို့ တိုက်ရိုက်ထည့်ထားပါတယ်
+    password: 'MYsql2525#', // 👈 ⚠️ သင့်ရဲ့ MySQL Workbench Password ကို ဒီမှာ ချိန်းပေးပါ (XAMPP ဆိုရင် '' အလွတ်ထားပါ)
+    database: 'shwe_ramen'      // 👈 ⚠️ သင့် MySQL ထဲက database နာမည်နဲ့ ကိုက်ညီအောင် ပြင်ပေးပါ
 });
 
 // Connect to MySQL
@@ -16,7 +16,7 @@ db.connect((err) => {
     if (err) {
         console.error('❌ Error connecting to MySQL database:', err.message);
         return;
-    }
+    } 
     console.log('✅ Connected to the MySQL database successfully.');
 });
 

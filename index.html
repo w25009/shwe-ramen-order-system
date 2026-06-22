@@ -20,110 +20,7 @@
       <div class="row">
         <div class="col-lg-8">
           <form id="orderForm" class="needs-validation" novalidate>
-            <!--Ramen-->
-            <!-- <div class="card p-4 mb-4">
-              <h3 class="text-warning mb-3">ラーメンを選んでください。</h3>
-              <div class="row">
-                <div class="col-md-4 mb-3">
-                  <label class="form-label d-block fw-bold">塩味噌</label>
-                  <input
-                    type="number"
-                    class="form-control item-qty"
-                    data-name="味噌"
-                    data-price="990"
-                    min="0"
-                    value="0"
-                  />
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label class="form-label d-block fw-bold">赤味噌</label>
-                  <input
-                    type="number"
-                    class="form-control item-qty"
-                    data-name="赤味噌"
-                    data-price="990"
-                    min="0"
-                    value="0"
-                  />
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label class="form-label d-block fw-bold"
-                    >塩ラーメン（こってり）</label
-                  >
-                  <input
-                    type="number"
-                    class="form-control item-qty"
-                    data-name="塩（こってり）"
-                    data-price="950"
-                    min="0"
-                    value="0"
-                  />
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label class="form-label d-block fw-bold"
-                    >醬油ラーメン（こってり）</label
-                  >
-                  <input
-                    type="number"
-                    class="form-control item-qty"
-                    data-name="醬油（こってり）"
-                    data-price="950"
-                    min="0"
-                    value="0"
-                  />
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label class="form-label d-block fw-bold"
-                    >塩ラーメン（あっさり）</label
-                  >
-                  <input
-                    type="number"
-                    class="form-control item-qty"
-                    data-name="塩（あっさり）"
-                    data-price="950"
-                    min="0"
-                    value="0"
-                  />
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label class="form-label d-block fw-bold"
-                    >醬油ラーメン（あっさり）</label
-                  >
-                  <input
-                    type="number"
-                    class="form-control item-qty"
-                    data-name="醬油（あっさり）"
-                    data-price="950"
-                    min="0"
-                    value="0"
-                  />
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label class="form-label d-block fw-bold"
-                    >ジャンラーメン</label
-                  >
-                  <input
-                    type="number"
-                    class="form-control item-qty"
-                    data-name="ジャン"
-                    data-price="1000"
-                    min="0"
-                    value="0"
-                  />
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label class="form-label d-block fw-bold">つけラーメン</label>
-                  <input
-                    type="number"
-                    class="form-control item-qty"
-                    data-name="つけ"
-                    data-price="1000"
-                    min="0"
-                    value="0"
-                  />
-                </div>
-              </div>
-            </div> -->
+  
             <div class="card p-4 mb-4 border-0">
               <h3 class="text-warning mb-4 fw-bold">
                 ラーメンを選んでください。
@@ -149,6 +46,7 @@
                         data-price="990"
                         min="0"
                         value="0"
+                        id="miso-ramen"
                       />
                     </div>
                   </div>
@@ -171,6 +69,7 @@
                         data-price="990"
                         min="0"
                         value="0"
+                        id="akamiso-ramen"
                       />
                     </div>
                   </div>
@@ -193,6 +92,7 @@
                         data-price="950"
                         min="0"
                         value="0"
+                        id="shio-ramen"
                       />
                     </div>
                   </div>
@@ -215,6 +115,7 @@
                         data-price="950"
                         min="0"
                         value="0"
+                        id="shouyu-ramen"
                       />
                     </div>
                   </div>
@@ -237,6 +138,7 @@
                         data-price="950"
                         min="0"
                         value="0"
+                        id="umi-ramen"
                       />
                     </div>
                   </div>
@@ -259,6 +161,7 @@
                         data-price="950"
                         min="0"
                         value="0"
+                        id="takumi-ramen"
                       />
                     </div>
                   </div>
@@ -281,6 +184,7 @@
                         data-price="1000"
                         min="0"
                         value="0"
+                        id="jyan-ramen"
                       />
                     </div>
                   </div>
@@ -303,156 +207,437 @@
                         data-price="1000"
                         min="0"
                         value="0"
+                        id="tsukemen"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm">
+                    <img
+                      src="images/yasai_ramen.png"
+                      class="card-img-top"
+                      alt="つけラーメン"
+                      style="height: 180px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-3">
+                      <h5 class="card-title fw-bold mb-1">野菜ラーメン</h5>
+                      <p class="card-text text-muted small mb-3">¥1000</p>
+                      <input
+                        type="number"
+                        class="form-control item-qty mt-auto"
+                        data-name="やさい"
+                        data-price="1000"
+                        min="0"
+                        value="0"
+                        id="yasai-ramen"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm">
+                    <img
+                      src="images/gyouza6.png"
+                      class="card-img-top"
+                      alt="餃子６個"
+                      style="height: 180px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-3">
+                      <h5 class="card-title fw-bold mb-1">餃子６個</h5>
+                      <p class="card-text text-muted small mb-3">¥700</p>
+                      <input
+                        type="number"
+                        class="form-control item-qty mt-auto"
+                        data-name="餃子６個"
+                        data-price="700"
+                        min="0"
+                        value="0"
+                        id="gyouza6"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm">
+                    <img
+                      src="images/chahan.png"
+                      class="card-img-top"
+                      alt="チャーハン"
+                      style="height: 180px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-3">
+                      <h5 class="card-title fw-bold mb-1">チャーハン</h5>
+                      <p class="card-text text-muted small mb-3">¥680</p>
+                      <input
+                        type="number"
+                        class="form-control item-qty mt-auto"
+                        data-name="チャーハン"
+                        data-price="680"
+                        min="0"
+                        value="0"
+                        id="chahan"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm">
+                    <img
+                      src="images/chashudon.png"
+                      class="card-img-top"
+                      alt="チャーシュー丼"
+                      style="height: 180px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-3">
+                      <h5 class="card-title fw-bold mb-1">チャーシュー丼</h5>
+                      <p class="card-text text-muted small mb-3">¥400</p>
+                      <input
+                        type="number"
+                        class="form-control item-qty mt-auto"
+                        data-name="チャーシュー丼"
+                        data-price="400"
+                        min="0"
+                        value="0"
+                        id="chashudon"
                       />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!--Toppings-->
-            <div class="card p-4 mb-4">
-              <h3 class="text-warning mb-3">オプショントッピング</h3>
-              <div class="row">
-                <div class="col-6 col-md-4 mb-3">
-                  <label class="form-label fw-bold">味玉</label>
-                  <input
-                    type="number"
-                    class="form-control topping-qty"
-                    data-name="味玉"
-                    data-price="150"
-                    min="0"
-                    value="0"
-                  />
+
+            <div class="card p-4 mb-4 border-0">
+              <h3 class="text-warning mb-4 fw-bold">オプショントッピング</h3>
+
+              <div class="row g-3">
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/ajitama.png"
+                      class="card-img-top rounded"
+                      alt="味玉"
+                      style="height: 140px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0">味玉</label>
+                      <span class="text-muted small mb-2">¥150</span>
+                      <input
+                        type="number"
+                        class="form-control topping-qty mt-auto text-center"
+                        data-name="味玉"
+                        data-price="150"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div class="col-6 col-md-4 mb-3">
-                  <label class="form-label fw-bold">チャーシュー</label>
-                  <input
-                    type="number"
-                    class="form-control topping-qty"
-                    data-name="チャーシュー"
-                    data-price="300"
-                    min="0"
-                    value="0"
-                  />
+
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/chashu.png"
+                      class="card-img-top rounded"
+                      alt="チャーシュー"
+                      style="height: 140px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0"
+                        >チャーシュー</label
+                      >
+                      <span class="text-muted small mb-2">¥300</span>
+                      <input
+                        type="number"
+                        class="form-control topping-qty mt-auto text-center"
+                        data-name="チャーシュー"
+                        data-price="300"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div class="col-6 col-md-4 mb-3">
-                  <label class="form-label fw-bold">メンマ</label>
-                  <input
-                    type="number"
-                    class="form-control topping-qty"
-                    data-name="メンマ"
-                    data-price="150"
-                    min="0"
-                    value="0"
-                  />
+
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/menma.png"
+                      class="card-img-top rounded"
+                      alt="メンマ"
+                      style="height: 140px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0">メンマ</label>
+                      <span class="text-muted small mb-2">¥150</span>
+                      <input
+                        type="number"
+                        class="form-control topping-qty mt-auto text-center"
+                        data-name="メンマ"
+                        data-price="150"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div class="col-6 col-md-4 mb-3">
-                  <label class="form-label fw-bold">もやし</label>
-                  <input
-                    type="number"
-                    class="form-control topping-qty"
-                    data-name="もやし"
-                    data-price="150"
-                    min="0"
-                    value="0"
-                  />
+
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/moyashi.png"
+                      class="card-img-top rounded"
+                      alt="もやし"
+                      style="height: 140px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0">もやし</label>
+                      <span class="text-muted small mb-2">¥150</span>
+                      <input
+                        type="number"
+                        class="form-control topping-qty mt-auto text-center"
+                        data-name="もやし"
+                        data-price="150"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div class="col-6 col-md-4 mb-3">
-                  <label class="form-label fw-bold">ねぎ</label>
-                  <input
-                    type="number"
-                    class="form-control topping-qty"
-                    data-name="ねぎ"
-                    data-price="150"
-                    min="0"
-                    value="0"
-                  />
+
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/negi.png"
+                      class="card-img-top rounded"
+                      alt="ねぎ"
+                      style="height: 140px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0">ねぎ</label>
+                      <span class="text-muted small mb-2">¥150</span>
+                      <input
+                        type="number"
+                        class="form-control topping-qty mt-auto text-center"
+                        data-name="ねぎ"
+                        data-price="150"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div class="col-6 col-md-4 mb-3">
-                  <label class="form-label fw-bold">ノリ</label>
-                  <input
-                    type="number"
-                    class="form-control topping-qty"
-                    data-name="ノリ"
-                    data-price="150"
-                    min="0"
-                    value="0"
-                  />
+
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/nori.png"
+                      class="card-img-top rounded"
+                      alt="ノリ"
+                      style="height: 140px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0">ノリ</label>
+                      <span class="text-muted small mb-2">¥150</span>
+                      <input
+                        type="number"
+                        class="form-control topping-qty mt-auto text-center"
+                        data-name="ノリ"
+                        data-price="150"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div class="col-6 col-md-4 mb-3">
-                  <label class="form-label fw-bold">コーン</label>
-                  <input
-                    type="number"
-                    class="form-control topping-qty"
-                    data-name="コーン"
-                    data-price="150"
-                    min="0"
-                    value="0"
-                  />
+
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/corn.png"
+                      class="card-img-top rounded"
+                      alt="コーン"
+                      style="height: 140px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0">コーン</label>
+                      <span class="text-muted small mb-2">¥150</span>
+                      <input
+                        type="number"
+                        class="form-control topping-qty mt-auto text-center"
+                        data-name="コーン"
+                        data-price="150"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div class="col-6 col-md-4 mb-3">
-                  <label class="form-label fw-bold">梅干し</label>
-                  <input
-                    type="number"
-                    class="form-control topping-qty"
-                    data-name="梅干し"
-                    data-price="150"
-                    min="0"
-                    value="0"
-                  />
+
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/umeboshi.png"
+                      class="card-img-top rounded"
+                      alt="梅干し"
+                      style="height: 140px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0">梅干し</label>
+                      <span class="text-muted small mb-2">¥150</span>
+                      <input
+                        type="number"
+                        class="form-control topping-qty mt-auto text-center"
+                        data-name="梅干し"
+                        data-price="150"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            　　　　　　　<!--Set & Side menu-->
-            <div class="card p-4 mb-4">
-              <h3 class="text-warning mb-3">セット＆ライス</h3>
+            <div class="card p-4 mb-4 border-0">
+              <h3 class="text-warning mb-4 fw-bold">セット＆ライス</h3>
 
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label class="form-label d-block fw-bold">セット</label>
-
-                  <select class="form-select" id="setMeal">
-                    <option value="" data-price="0">セットなし</option>
-
-                    <option value="チャーどん　セット" data-price="480">
-                      チャーどんセット
-                    </option>
-
-                    <option value="餃子　セット" data-price="480">
-                      餃子セット
-                    </option>
-
-                    <option value="半チャー　セット" data-price="480">
-                      ハンチャーセット
-                    </option>
-                  </select>
+              <h5 class="text-white mb-3 fw-bold">
+                お得なセットメニュー（複数選択可能）
+              </h5>
+              <div class="row g-3 mb-4">
+                <div class="col-6 col-md-4">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/chashu-don-set.png"
+                      class="card-img-top rounded"
+                      alt="チャーどんセット"
+                      style="height: 140px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0"
+                        >チャーどんセット</label
+                      >
+                      <span class="text-muted small mb-1"
+                        >(餃子3個、チャーシュー丼)</span
+                      >
+                      <span class="text-warning small fw-bold mb-2">¥500</span>
+                      <input
+                        type="number"
+                        class="form-control mt-auto text-center"
+                        id="set-chashudon"
+                        data-name="チャーどん セット"
+                        data-price="500"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div class="row">
-                  <div class="col-6 mb-2">
-                    <label class="form-label small text-muted">ライス</label>
-
-                    <input
-                      type="number"
-                      class="form-control rice-qty"
-                      data-name="ライス"
-                      data-price="200"
-                      min="0"
-                      value="0"
+                <div class="col-6 col-md-4">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/gyouza-set.png"
+                      class="card-img-top rounded"
+                      alt="餃子セット"
+                      style="height: 140px; object-fit: cover"
                     />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0">餃子セット</label>
+                      <span class="text-muted small mb-1"
+                        >(餃子5個、ライス)</span
+                      >
+                      <span class="text-warning small fw-bold mb-2">¥500</span>
+                      <input
+                        type="number"
+                        class="form-control mt-auto text-center"
+                        id="set-gyoza"
+                        data-name="餃子 セット"
+                        data-price="500"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
                   </div>
+                </div>
 
-                  <div class="col-6 mb-2">
-                    <label class="form-label small text-muted">小ライス</label>
-
-                    <input
-                      type="number"
-                      class="form-control rice-qty"
-                      data-name="小ライス"
-                      data-price="100"
-                      min="0"
-                      value="0"
+                <div class="col-6 col-md-4">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/hancha-set.png"
+                      class="card-img-top rounded"
+                      alt="半チャーセット"
+                      style="height: 140px; object-fit: cover"
                     />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0"
+                        >ハンチャーセット</label
+                      >
+                      <span class="text-muted small mb-1"
+                        >(餃子3個、半チャー)</span
+                      >
+                      <span class="text-warning small fw-bold mb-2">¥480</span>
+                      <input
+                        type="number"
+                        class="form-control mt-auto text-center"
+                        id="set-hancha"
+                        data-name="半チャー セット"
+                        data-price="480"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-secondary my-4" />
+
+              <h5 class="text-white mb-3 fw-bold">ライス</h5>
+              <div class="row g-3">
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/rice.png"
+                      class="card-img-top rounded"
+                      alt="ライス"
+                      style="height: 120px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0">ライス</label>
+                      <span class="text-muted small mb-2">¥200</span>
+                      <input
+                        type="number"
+                        class="form-control rice-qty mt-auto text-center"
+                        data-name="ライス"
+                        data-price="200"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                  <div class="card h-100 shadow-sm border-0">
+                    <img
+                      src="images/small-rice.png"
+                      class="card-img-top rounded"
+                      alt="小ライス"
+                      style="height: 120px; object-fit: cover"
+                    />
+                    <div class="card-body d-flex flex-column p-2 text-center">
+                      <label class="form-label fw-bold mb-0">小ライス</label>
+                      <span class="text-muted small mb-2">¥100</span>
+                      <input
+                        type="number"
+                        class="form-control rice-qty mt-auto text-center"
+                        data-name="小ライス"
+                        data-price="100"
+                        min="0"
+                        value="0"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1,4 +1,5 @@
-const inputs = document.querySelectorAll(".item-qty, .topping-qty, #setMeal, .rice-qty");
+// 💡 監視対象の入力フィールドを新しいセットメニューのIDに更新
+const inputs = document.querySelectorAll(".item-qty, .topping-qty, #set-chashudon, #set-gyoza, #set-hancha, .rice-qty");
 inputs.forEach((input) => input.addEventListener("change", calculateTotal));
 inputs.forEach((input) => input.addEventListener("input", calculateTotal));
 
@@ -13,38 +14,70 @@ function calculateTotal() {
             let price = parseFloat(el.getAttribute("data-price"));
             let name = el.getAttribute("data-name");
             total += price * qty;
-            summaryHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">${name} x${qty} <span>¥${(price * qty).toFixed(0)}</span></li>`;
+            // 💡 ❌ Button ထည့်သွင်းထားပြီး ၎င်း input ၏ id ကို လှမ်းပို့ပေးသည်
+            summaryHTML += `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>${name} x${qty}</div>
+                    <div>
+                        <span class="me-3">¥${(price * qty).toFixed(0)}</span>
+                        <button type="button" class="btn btn-sm text-danger p-0 border-0" onclick="deleteSingleItem('${el.id || el.className}')">❌</button>
+                    </div>
+                </li>`;
         }
     });
 
     // 2. Calculate Toppings 
-    document.querySelectorAll(".topping-qty").forEach((el) => {
+    document.querySelectorAll(".topping-qty").forEach((el, index) => {
         let qty = parseInt(el.value);
         if (qty > 0) {
             let price = parseFloat(el.getAttribute("data-price"));
             let name = el.getAttribute("data-name");
             total += price * qty;
-            summaryHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">トッピング: ${name} x${qty} <span>¥${(price * qty).toFixed(0)}</span></li>`;
+            // 💡 Topping တွေအတွက် array index ကို သုံးပြီး ခလုတ်ဆောက်သည်
+            summaryHTML += `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>トッピング: ${name} x${qty}</div>
+                    <div>
+                        <span class="me-3">¥${(price * qty).toFixed(0)}</span>
+                        <button type="button" class="btn btn-sm text-danger p-0 border-0" onclick="deleteToppingOrRice('.topping-qty', ${index})">❌</button>
+                    </div>
+                </li>`;
         }
     });
 
-    // 3. Calculate Set
-    let setSelect = document.getElementById("setMeal");
-    let selectedSet = setSelect.options[setSelect.selectedIndex];
-    if (selectedSet.value) {
-        let price = parseFloat(selectedSet.getAttribute("data-price"));
-        total += price;
-        summaryHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">${selectedSet.value} <span>¥${price.toFixed(0)}</span></li>`;
-    }
-
-    // 4. Calculate Rice (Multi-select)
-    document.querySelectorAll(".rice-qty").forEach((el) => {
-        let qty = parseInt(el.value);
+    // 3. Calculate Set (Multi-select)
+    document.querySelectorAll("#set-chashudon, #set-gyoza, #set-hancha").forEach((el) => {
+        let qty = parseInt(el.value) || 0;
         if (qty > 0) {
             let price = parseFloat(el.getAttribute("data-price"));
             let name = el.getAttribute("data-name");
             total += price * qty;
-            summaryHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">${name} x${qty} <span>¥ ${(price * qty).toFixed(0)}</span></li>`;
+            summaryHTML += `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>${name} x${qty}</div>
+                    <div>
+                        <span class="me-3">¥ ${(price * qty).toFixed(0)}</span>
+                        <button type="button" class="btn btn-sm text-danger p-0 border-0" onclick="deleteSingleItem('${el.id}')">❌</button>
+                    </div>
+                </li>`;
+        }
+    });
+
+    // 4. Calculate Rice (Multi-select)
+    document.querySelectorAll(".rice-qty").forEach((el, index) => {
+        let qty = parseInt(el.value) || 0;
+        if (qty > 0) {
+            let price = parseFloat(el.getAttribute("data-price"));
+            let name = el.getAttribute("data-name");
+            total += price * qty;
+            summaryHTML += `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>${name} x${qty}</div>
+                    <div>
+                        <span class="me-3">¥ ${(price * qty).toFixed(0)}</span>
+                        <button type="button" class="btn btn-sm text-danger p-0 border-0" onclick="deleteToppingOrRice('.rice-qty', ${index})">❌</button>
+                    </div>
+                </li>`;
         }
     });
 
@@ -60,6 +93,23 @@ function calculateTotal() {
     return total;
 }
 
+// 💡 အော်ဒါတစ်ခုချင်းစီကို ဖျက်ပေးမယ့် Function အသစ်များ (New Functions)
+function deleteSingleItem(elementId) {
+    const el = document.getElementById(elementId);
+    if (el) {
+        el.value = 0;       // တန်ဖိုးကို ၀ ပြန်လုပ်သည်
+        calculateTotal();   // စာရင်းပြန်တွက်ပြီး Summary ကို Update လုပ်သည်
+    }
+}
+
+function deleteToppingOrRice(className, index) {
+    const elements = document.querySelectorAll(className);
+    if (elements[index]) {
+        elements[index].value = 0; // ရွေးချယ်လိုက်သော Topping/Rice ကို ၀ ပြန်လုပ်သည်
+        calculateTotal();
+    }
+}
+
 function submitOrder() {
     const name = document.getElementById("custName").value;
     const table = document.getElementById("tableNum").value;
@@ -71,23 +121,30 @@ function submitOrder() {
 
     let orderItems = [];
 
-    // Gather items
+    // Gather items (Ramen Base)
     document.querySelectorAll(".item-qty").forEach((el) => {
         if (parseInt(el.value) > 0) {
             orderItems.push(`${el.getAttribute("data-name")} (x${el.value})`);
         }
     });
 
+    // Gather Toppings
     document.querySelectorAll(".topping-qty").forEach((el) => {
         let qty = parseInt(el.value);
         if (qty > 0) {
-            orderItems.push(`Topping: ${el.getAttribute("data-name")} (x${qty})`);
+            orderItems.push(`Topping: ${el.getAttribute("name") || el.getAttribute("data-name")} (x${qty})`);
         }
     });
 
-    let setVal = document.getElementById("setMeal").value;
-    if (setVal) orderItems.push(setVal);
+    // Gather Multi-select Sets
+    document.querySelectorAll("#set-chashudon, #set-gyoza, #set-hancha").forEach((el) => {
+        let qty = parseInt(el.value);
+        if (qty > 0) {
+            orderItems.push(`${el.getAttribute("data-name")} (x${qty})`);
+        }
+    });
 
+    // Gather Rice
     document.querySelectorAll(".rice-qty").forEach((el) => {
         let qty = parseInt(el.value);
         if (qty > 0) {
@@ -107,7 +164,7 @@ function submitOrder() {
         totalPrice: calculateTotal(),
     };
 
-    // Post to local Java Backend
+    // Post to local Node.js Backend
     fetch("http://localhost:8080/api/order", {
         method: "POST",
         headers: {
