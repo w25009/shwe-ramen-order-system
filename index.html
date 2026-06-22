@@ -9,11 +9,23 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* 言語切り替えボタンの簡単なスタイル */
+      .lang-btn {
+        font-size: 0.9rem;
+        padding: 4px 12px;
+      }
+    </style>
   </head>
   <body>
-    <div class="ramen-header mb-5">
-      <h1 class="display-4 fw-bold">SHWEラーメン</h1>
-      <p class="lead">美味しい味を皆へ！</p>
+    <div class="ramen-header mb-5 text-center position-relative">
+      <h1 class="display-4 fw-bold" data-translate="header-title">SHWEラーメン</h1>
+      <p class="lead" data-translate="header-subtitle">美味しい味を皆へ！</p>
+      
+      <div class="mt-3">
+        <button class="btn btn-sm btn-warning lang-btn me-2 fw-bold" id="btn-ja" onclick="switchLanguage('ja')">日本語</button>
+        <button class="btn btn-sm btn-outline-light lang-btn fw-bold" id="btn-en" onclick="switchLanguage('en')">English</button>
+      </div>
     </div>
 
     <div class="container mb-5">
@@ -22,7 +34,7 @@
           <form id="orderForm" class="needs-validation" novalidate>
   
             <div class="card p-4 mb-4 border-0">
-              <h3 class="text-warning mb-4 fw-bold">
+              <h3 class="text-warning mb-4 fw-bold" data-translate="section-ramen">
                 ラーメンを選んでください。
               </h3>
 
@@ -36,7 +48,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">塩味噌</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-miso">塩味噌</h5>
                       <p class="card-text text-muted small mb-3">¥990</p>
 
                       <input
@@ -60,7 +72,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">赤味噌</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-akamiso">赤味噌</h5>
                       <p class="card-text text-muted small mb-3">¥990</p>
                       <input
                         type="number"
@@ -83,7 +95,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">塩（こってり）</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-shio-rich">塩（こってり）</h5>
                       <p class="card-text text-muted small mb-3">¥950</p>
                       <input
                         type="number"
@@ -106,7 +118,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">醬油（こってり）</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-shoyu-rich">醬油（こってり）</h5>
                       <p class="card-text text-muted small mb-3">¥950</p>
                       <input
                         type="number"
@@ -129,7 +141,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">塩（あっさり）</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-shio-light">塩（あっさり）</h5>
                       <p class="card-text text-muted small mb-3">¥950</p>
                       <input
                         type="number"
@@ -152,7 +164,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">醬油（あっさり）</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-shoyu-light">醬油（あっさり）</h5>
                       <p class="card-text text-muted small mb-3">¥950</p>
                       <input
                         type="number"
@@ -175,7 +187,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">ジャンラーメン</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-jyan">ジャンラーメン</h5>
                       <p class="card-text text-muted small mb-3">¥1000</p>
                       <input
                         type="number"
@@ -198,7 +210,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">つけラーメン</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-tsukemen">つけラーメン</h5>
                       <p class="card-text text-muted small mb-3">¥1000</p>
                       <input
                         type="number"
@@ -221,7 +233,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">野菜ラーメン</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-yasai">野菜ラーメン</h5>
                       <p class="card-text text-muted small mb-3">¥1000</p>
                       <input
                         type="number"
@@ -244,7 +256,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">餃子６個</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-gyoza">餃子６個</h5>
                       <p class="card-text text-muted small mb-3">¥700</p>
                       <input
                         type="number"
@@ -267,7 +279,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">チャーハン</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-chahan">チャーハン</h5>
                       <p class="card-text text-muted small mb-3">¥680</p>
                       <input
                         type="number"
@@ -290,7 +302,7 @@
                       style="height: 180px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-3">
-                      <h5 class="card-title fw-bold mb-1">チャーシュー丼</h5>
+                      <h5 class="card-title fw-bold mb-1" data-translate="menu-chashudon">チャーシュー丼</h5>
                       <p class="card-text text-muted small mb-3">¥400</p>
                       <input
                         type="number"
@@ -308,7 +320,7 @@
             </div>
 
             <div class="card p-4 mb-4 border-0">
-              <h3 class="text-warning mb-4 fw-bold">オプショントッピング</h3>
+              <h3 class="text-warning mb-4 fw-bold" data-translate="section-topping">オプショントッピング</h3>
 
               <div class="row g-3">
                 <div class="col-6 col-md-3">
@@ -320,7 +332,7 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0">味玉</label>
+                      <label class="form-label fw-bold mb-0" data-translate="top-ajitama">味玉</label>
                       <span class="text-muted small mb-2">¥150</span>
                       <input
                         type="number"
@@ -343,9 +355,7 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0"
-                        >チャーシュー</label
-                      >
+                      <label class="form-label fw-bold mb-0" data-translate="top-chashu">チャーシュー</label>
                       <span class="text-muted small mb-2">¥300</span>
                       <input
                         type="number"
@@ -368,7 +378,7 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0">メンマ</label>
+                      <label class="form-label fw-bold mb-0" data-translate="top-menma">メンマ</label>
                       <span class="text-muted small mb-2">¥150</span>
                       <input
                         type="number"
@@ -391,7 +401,7 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0">もやし</label>
+                      <label class="form-label fw-bold mb-0" data-translate="top-moyashi">もやし</label>
                       <span class="text-muted small mb-2">¥150</span>
                       <input
                         type="number"
@@ -414,7 +424,7 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0">ねぎ</label>
+                      <label class="form-label fw-bold mb-0" data-translate="top-negi">ねぎ</label>
                       <span class="text-muted small mb-2">¥150</span>
                       <input
                         type="number"
@@ -437,7 +447,7 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0">ノリ</label>
+                      <label class="form-label fw-bold mb-0" data-translate="top-nori">ノリ</label>
                       <span class="text-muted small mb-2">¥150</span>
                       <input
                         type="number"
@@ -460,7 +470,7 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0">コーン</label>
+                      <label class="form-label fw-bold mb-0" data-translate="top-corn">コーン</label>
                       <span class="text-muted small mb-2">¥150</span>
                       <input
                         type="number"
@@ -483,7 +493,7 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0">梅干し</label>
+                      <label class="form-label fw-bold mb-0" data-translate="top-umeboshi">梅干し</label>
                       <span class="text-muted small mb-2">¥150</span>
                       <input
                         type="number"
@@ -499,9 +509,9 @@
               </div>
             </div>
             <div class="card p-4 mb-4 border-0">
-              <h3 class="text-warning mb-4 fw-bold">セット＆ライス</h3>
+              <h3 class="text-warning mb-4 fw-bold" data-translate="section-set">セット＆ライス</h3>
 
-              <h5 class="text-white mb-3 fw-bold">
+              <h5 class="text-white mb-3 fw-bold" data-translate="title-set">
                 お得なセットメニュー（複数選択可能）
               </h5>
               <div class="row g-3 mb-4">
@@ -514,12 +524,8 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0"
-                        >チャーどんセット</label
-                      >
-                      <span class="text-muted small mb-1"
-                        >(餃子3個、チャーシュー丼)</span
-                      >
+                      <label class="form-label fw-bold mb-0" data-translate="set-chashudon">チャーどんセット</label>
+                      <span class="text-muted small mb-1" data-translate="set-chashudon-desc">(餃子3個、チャーシュー丼)</span>
                       <span class="text-warning small fw-bold mb-2">¥500</span>
                       <input
                         type="number"
@@ -543,10 +549,8 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0">餃子セット</label>
-                      <span class="text-muted small mb-1"
-                        >(餃子5個、ライス)</span
-                      >
+                      <label class="form-label fw-bold mb-0" data-translate="set-gyoza">餃子セット</label>
+                      <span class="text-muted small mb-1" data-translate="set-gyoza-desc">(餃子5個、ライス)</span>
                       <span class="text-warning small fw-bold mb-2">¥500</span>
                       <input
                         type="number"
@@ -570,12 +574,8 @@
                       style="height: 140px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0"
-                        >ハンチャーセット</label
-                      >
-                      <span class="text-muted small mb-1"
-                        >(餃子3個、半チャー)</span
-                      >
+                      <label class="form-label fw-bold mb-0" data-translate="set-hancha">ハンチャーセット</label>
+                      <span class="text-muted small mb-1" data-translate="set-hancha-desc">(餃子3個、半チャー)</span>
                       <span class="text-warning small fw-bold mb-2">¥480</span>
                       <input
                         type="number"
@@ -593,7 +593,7 @@
 
               <hr class="border-secondary my-4" />
 
-              <h5 class="text-white mb-3 fw-bold">ライス</h5>
+              <h5 class="text-white mb-3 fw-bold" data-translate="title-rice">ライス</h5>
               <div class="row g-3">
                 <div class="col-6 col-md-3">
                   <div class="card h-100 shadow-sm border-0">
@@ -604,7 +604,7 @@
                       style="height: 120px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0">ライス</label>
+                      <label class="form-label fw-bold mb-0" data-translate="rice-normal">ライス</label>
                       <span class="text-muted small mb-2">¥200</span>
                       <input
                         type="number"
@@ -627,7 +627,7 @@
                       style="height: 120px; object-fit: cover"
                     />
                     <div class="card-body d-flex flex-column p-2 text-center">
-                      <label class="form-label fw-bold mb-0">小ライス</label>
+                      <label class="form-label fw-bold mb-0" data-translate="rice-small">小ライス</label>
                       <span class="text-muted small mb-2">¥100</span>
                       <input
                         type="number"
@@ -644,10 +644,10 @@
             </div>
 
             <div class="card p-4 mb-4">
-              <h3 class="text-warning mb-3">お客様の情報</h3>
+              <h3 class="text-warning mb-3" data-translate="section-customer">お客様の情報</h3>
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="custName" class="form-label">名前</label>
+                  <label for="custName" class="form-label" data-translate="cust-name">名前</label>
                   <input
                     type="text"
                     class="form-control"
@@ -657,7 +657,7 @@
                   />
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label for="tableNum" class="form-label">テーブル番号</label>
+                  <label for="tableNum" class="form-label" data-translate="table-num">テーブル番号</label>
                   <input
                     type="number"
                     class="form-control"
@@ -675,6 +675,7 @@
               type="button"
               class="btn btn-danger btn-lg w-100"
               onclick="submitOrder()"
+              data-translate="btn-order"
             >
               注文する
             </button>
@@ -686,24 +687,25 @@
             <div
               class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2"
             >
-              <h3 class="m-0">注文概要</h3>
+              <h3 class="m-0" data-translate="summary-title">注文概要</h3>
               <button
                 type="button"
                 class="btn btn-outline-danger btn-sm"
                 id="clearOrderBtn"
                 onclick="clearEntireOrder()"
+                data-translate="summary-clear"
               >
                 ✕ 全て削除
               </button>
             </div>
 
             <div id="summaryContent" class="my-3">
-              <p class="text-muted">注文内容を追加してください。</p>
+              <p class="text-muted" data-translate="summary-empty">注文内容を追加してください。</p>
             </div>
 
             <hr />
             <div class="d-flex justify-content-between align-items-center">
-              <span class="h4">合計:</span>
+              <span class="h4" data-translate="summary-total">合計:</span>
               <span class="h4 text-danger" id="totalPrice">¥0</span>
             </div>
           </div>
@@ -713,5 +715,135 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
+
+    <script>
+      const dictionary = {
+        ja: {
+          "header-title": "SHWEラーメン",
+          "header-subtitle": "美味しい味を皆へ！",
+          "section-ramen": "ラーメンを選んでください。",
+          "menu-miso": "塩味噌",
+          "menu-akamiso": "赤味噌",
+          "menu-shio-rich": "塩（こってり）",
+          "menu-shoyu-rich": "醬油（こってり）",
+          "menu-shio-light": "塩（あっさり）",
+          "menu-shoyu-light": "醬油（あっさり）",
+          "menu-jyan": "ジャンラーメン",
+          "menu-tsukemen": "つけラーメン",
+          "menu-yasai": "野菜ラーメン",
+          "menu-gyoza": "餃子６個",
+          "menu-chahan": "チャーハン",
+          "menu-chashudon": "チャーシュー丼",
+          "section-topping": "オプショントッピング",
+          "top-ajitama": "味玉",
+          "top-chashu": "チャーシュー",
+          "top-menma": "メンマ",
+          "top-moyashi": "もやし",
+          "top-negi": "ねぎ",
+          "top-nori": "ノリ",
+          "top-corn": "コーン",
+          "top-umeboshi": "梅干し",
+          "section-set": "セット＆ライス",
+          "title-set": "お得なセットメニュー（複数選択可能）",
+          "set-chashudon": "チャーどんセット",
+          "set-chashudon-desc": "(餃子3個、チャーシュー丼)",
+          "set-gyoza": "餃子セット",
+          "set-gyoza-desc": "(餃子5個、ライス)",
+          "set-hancha": "ハンチャーセット",
+          "set-hancha-desc": "(餃子3個、半チャー)",
+          "title-rice": "ライス",
+          "rice-normal": "ライス",
+          "rice-small": "小ライス",
+          "section-customer": "お客様の情報",
+          "cust-name": "名前",
+          "table-num": "テーブル番号",
+          "btn-order": "注文する",
+          "summary-title": "注文概要",
+          "summary-clear": "✕ 全て削除",
+          "summary-empty": "注文内容を追加してください。",
+          "summary-total": "合計:"
+        },
+        en: {
+          "header-title": "SHWE RAMEN",
+          "header-subtitle": "Delicious Taste for Everyone!",
+          "section-ramen": "Please Select Your Ramen",
+          "menu-miso": "Salt Miso Ramen",
+          "menu-akamiso": "Red Miso Ramen",
+          "menu-shio-rich": "Shio (Rich)",
+          "menu-shoyu-rich": "Shoyu (Rich)",
+          "menu-shio-light": "Shio (Light)",
+          "menu-shoyu-light": "Shoyu (Light)",
+          "menu-jyan": "Jyan Ramen (Spicy)",
+          "menu-tsukemen": "Tsukemen (Dipping Noodles)",
+          "menu-yasai": "Veggie Ramen",
+          "menu-gyoza": "Gyoza (6 pcs)",
+          "menu-chahan": "Fried Rice",
+          "menu-chashudon": "Chashu Bowl",
+          "section-topping": "Optional Toppings",
+          "top-ajitama": "Seasoned Egg",
+          "top-chashu": "Chashu Pork",
+          "top-menma": "Bamboo Shoots",
+          "top-moyashi": "Bean Sprouts",
+          "top-negi": "Green Onions",
+          "top-nori": "Seaweed",
+          "top-corn": "Sweet Corn",
+          "top-umeboshi": "Pickled Plum",
+          "section-set": "Value Sets & Rice",
+          "title-set": "Value Combination Sets (Multiple selections allowed)",
+          "set-chashudon": "Chashu-don Set",
+          "set-chashudon-desc": "(3 Gyoza, Chashu Bowl)",
+          "set-gyoza": "Gyoza Set",
+          "set-gyoza-desc": "(5 Gyoza, Rice)",
+          "set-hancha": "Han-Cha Set",
+          "set-hancha-desc": "(3 Gyoza, Half Fried Rice)",
+          "title-rice": "Rice Options",
+          "rice-normal": "Regular Rice",
+          "rice-small": "Small Rice",
+          "section-customer": "Customer Information",
+          "cust-name": "Your Name",
+          "table-num": "Table Number",
+          "btn-order": "Place Order",
+          "summary-title": "Order Summary",
+          "summary-clear": "✕ Clear All",
+          "summary-empty": "Please add items to your order.",
+          "summary-total": "Total:"
+        }
+      };
+
+      function switchLanguage(lang) {
+        // 全ての翻訳対象要素を取得
+        const elements = document.querySelectorAll("[data-translate]");
+        
+        elements.forEach((element) => {
+          const key = element.getAttribute("data-translate");
+          if (dictionary[lang] && dictionary[lang][key]) {
+            element.textContent = dictionary[lang][key];
+          }
+        });
+
+        // プレースホルダー（入力欄の例：田中など）の翻訳
+        if (lang === "en") {
+          document.getElementById("custName").placeholder = "e.g., John";
+          document.getElementById("tableNum").placeholder = "e.g., 5";
+        } else {
+          document.getElementById("custName").placeholder = "例：田中";
+          document.getElementById("tableNum").placeholder = "例：1";
+        }
+
+        // HTML自体の言語設定を変更
+        document.documentElement.lang = lang;
+
+        // ボタンのアクティブ状態（見た目）を切り替え
+        const btnJa = document.getElementById("btn-ja");
+        const btnEn = document.getElementById("btn-en");
+        if (lang === "en") {
+          btnEn.className = "btn btn-sm btn-warning lang-btn fw-bold";
+          btnJa.className = "btn btn-sm btn-outline-light lang-btn me-2 fw-bold";
+        } else {
+          btnJa.className = "btn btn-sm btn-warning lang-btn me-2 fw-bold";
+          btnEn.className = "btn btn-sm btn-outline-light lang-btn fw-bold";
+        }
+      }
+    </script>
   </body>
 </html>
