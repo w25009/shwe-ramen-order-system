@@ -1,5 +1,5 @@
-// 💡 監視対象の入力フィールドを新しいセットメニューのIDに更新
-const inputs = document.querySelectorAll(".item-qty, .topping-qty, #set-chashudon, #set-gyoza, #set-hancha, .rice-qty");
+// 💡 監視対象の入力フィールドを新しいセットメニューとドリンクのID/クラスに更新
+const inputs = document.querySelectorAll(".item-qty, .topping-qty, #set-chashudon, #set-gyoza, #set-hancha, .rice-qty, .drink-qty");
 inputs.forEach((input) => input.addEventListener("change", calculateTotal));
 inputs.forEach((input) => input.addEventListener("input", calculateTotal));
 
@@ -14,7 +14,6 @@ function calculateTotal() {
             let price = parseFloat(el.getAttribute("data-price"));
             let name = el.getAttribute("data-name");
             total += price * qty;
-            // 💡 ❌ Button ထည့်သွင်းထားပြီး ၎င်း input ၏ id ကို လှမ်းပို့ပေးသည်
             summaryHTML += `
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <div>${name} x${qty}</div>
@@ -33,7 +32,6 @@ function calculateTotal() {
             let price = parseFloat(el.getAttribute("data-price"));
             let name = el.getAttribute("data-name");
             total += price * qty;
-            // 💡 Topping တွေအတွက် array index ကို သုံးပြီး ခလုတ်ဆောက်သည်
             summaryHTML += `
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <div>トッピング: ${name} x${qty}</div>
@@ -81,6 +79,24 @@ function calculateTotal() {
         }
     });
 
+    // 5. Calculate Drinks (お飲み物)
+    document.querySelectorAll(".drink-qty").forEach((el, index) => {
+        let qty = parseInt(el.value) || 0;
+        if (qty > 0) {
+            let price = parseFloat(el.getAttribute("data-price"));
+            let name = el.getAttribute("data-name");
+            total += price * qty;
+            summaryHTML += `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>${name} x${qty}</div>
+                    <div>
+                        <span class="me-3">¥ ${(price * qty).toFixed(0)}</span>
+                        <button type="button" class="btn btn-sm text-danger p-0 border-0" onclick="deleteToppingOrRice('.drink-qty', ${index})">❌</button>
+                    </div>
+                </li>`;
+        }
+    });
+
     summaryHTML += "</ul>";
 
     if (total === 0) {
@@ -105,7 +121,7 @@ function deleteSingleItem(elementId) {
 function deleteToppingOrRice(className, index) {
     const elements = document.querySelectorAll(className);
     if (elements[index]) {
-        elements[index].value = 0; // ရွေးချယ်လိုက်သော Topping/Rice ကို ၀ ပြန်လုပ်သည်
+        elements[index].value = 0; // ရွေးချယ်လိုက်သော Topping/Rice/Drink ကို ၀ ပြန်လုပ်သည်
         calculateTotal();
     }
 }
@@ -152,6 +168,14 @@ function submitOrder() {
         }
     });
 
+    // Gather Drinks
+    document.querySelectorAll(".drink-qty").forEach((el) => {
+        let qty = parseInt(el.value);
+        if (qty > 0) {
+            orderItems.push(`${el.getAttribute("data-name")} (x${qty})`);
+        }
+    });
+
     if (orderItems.length === 0) {
         alert("注文内容が空です。何かを選択してください。");
         return;
@@ -163,31 +187,4 @@ function submitOrder() {
         items: orderItems,
         totalPrice: calculateTotal(),
     };
-
-    // Post to local Node.js Backend
-    fetch("http://localhost:8080/api/order", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-    })
-    .then((res) => res.text())
-    .then((data) => {
-        alert("Success: " + data);
-        document.getElementById("orderForm").reset();
-        calculateTotal();
-    })
-    .catch((err) => {
-        console.error(err);
-        alert("注文完了しました。");
-    });
-}
-
-function clearEntireOrder() {
-    const orderForm = document.getElementById("orderForm");
-    if (orderForm) {
-        orderForm.reset();
-    }
-    calculateTotal();
 }
