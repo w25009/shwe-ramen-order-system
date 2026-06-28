@@ -9,7 +9,8 @@ https://w25009.github.io/shwe-ramen-order-system/
 
 ## 📸 実際の画面（スクリーンショット）
 
-* `images/top.png` *
+ホームページ
+<img src="images/top.png">
 
 ---
 
