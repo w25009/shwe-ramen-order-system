@@ -12,6 +12,18 @@ https://w25009.github.io/shwe-ramen-order-system/
 ホームページ
 <img src='images/top.png'>
 
+ラーメン
+<img src='images/ramen.png'>
+
+トッピング
+<img src='images/toppings.png'>
+
+セット
+<img src='images/sets.png'>
+
+ドリンク
+<img src='images/drinks.png'>
+
 ---
 
 ## ✨ 主な機能
