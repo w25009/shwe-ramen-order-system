@@ -9,7 +9,7 @@ https://w25009.github.io/shwe-ramen-order-system/
 
 ## 📸 実際の画面（スクリーンショット）
 
-* `images/top.png` *
+*`images/top.png`*
 
 ---
 
@@ -49,9 +49,6 @@ https://w25009.github.io/shwe-ramen-order-system/
 注文送信機能を完全にテストするには、ローカルで `http://localhost:8080/api/order` に対応したバックエンドサーバーが起動している必要があります。
 *(※サーバーが起動していない場合でも、フロントエンドのバリデーションや合計金額の計算機能はそのまま動かすことができます)*
 
-### 2. リポジトリのクローン
-```bash
-git clone [https://github.com/YOUR_USERNAME/shwe-ramen-order-system.git](https://github.com/YOUR_USERNAME/shwe-ramen-order-system.git)
-cd shwe-ramen-order-system
+
 
 
